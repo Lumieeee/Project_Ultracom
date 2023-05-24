@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".EditProfile"
+    android:orientation="vertical"
+    android:background="#B0D4C9">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="10dp"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginTop="10dp">
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/imageprofile"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:layout_marginTop="10dp"
+                android:scaleType="centerCrop"
+                android:layout_gravity="center"
+                android:src="@drawable/logo"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="20dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Edit Profile"
+                android:textSize="22sp"
+                android:textColor="#2C735E"
+                android:layout_gravity="center"/>
+
+            <EditText
+                android:id="@+id/editText_updateUsername"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginTop="20dp"
+                android:textColor="@color/black"
+                android:paddingLeft="15dp"
+                android:background="@drawable/rounded_edittext"
+                android:drawableStart="@drawable/ic_person"
+                android:drawablePadding="8dp"/>
+
+            <EditText
+                android:id="@+id/editText_updateEmail"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginTop="20dp"
+                android:textColor="@color/black"
+                android:paddingLeft="15dp"
+                android:background="@drawable/rounded_edittext"
+                android:drawableStart="@drawable/ic_baseline_email_24"
+
+                android:drawablePadding="8dp"/>
+            <EditText
+                android:id="@+id/editText_updatephone"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginTop="20dp"
+                android:textColor="@color/black"
+                android:paddingLeft="15dp"
+                android:background="@drawable/rounded_edittext"
+                android:drawableStart="@drawable/ic_baseline_phone_android_24"
+                android:drawablePadding="8dp"/>
+            <EditText
+                android:id="@+id/editText_updateaddress"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginTop="20dp"
+                android:textColor="@color/black"
+                android:paddingLeft="15dp"
+                android:background="@drawable/rounded_edittext"
+                android:drawableStart="@drawable/ic_home"
+                android:drawablePadding="8dp"/>
+            <EditText
+                android:id="@+id/editText_updatePassword"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginTop="20dp"
+                android:textColor="@color/black"
+                android:paddingLeft="15dp"
+                android:background="@drawable/rounded_edittext"
+                android:drawableStart="@drawable/ic_baseline_lock_24"
+                android:drawablePadding="8dp"/>
+            <EditText
+                android:id="@+id/editText_updateconfirmPassword"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginTop="20dp"
+                android:textColor="@color/black"
+                android:paddingLeft="15dp"
+                android:background="@drawable/rounded_edittext"
+                android:drawableStart="@drawable/ic_baseline_lock_24"
+                android:drawablePadding="8dp"/>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_editprofile"
+                android:backgroundTint="#2C735E"
+                android:layout_width="300dp"
+                android:layout_height="60dp"
+                android:layout_marginTop="10dp"
+                android:layout_gravity="center"
+                app:cornerRadius="20dp"
+                android:text="Save">
+            </com.google.android.material.button.MaterialButton>
+        </LinearLayout>
+
+    </LinearLayout>
+</LinearLayout>

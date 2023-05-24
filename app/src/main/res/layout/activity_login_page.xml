@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#B0D4C9"
+    tools:context=".LoginPage">
+
+    <ImageView
+        android:id="@+id/logo"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="100dp"
+        android:src="@drawable/logo2" />
+
+    <TextView
+        android:id="@+id/Sign_In"
+        android:layout_width="100dp"
+        android:layout_height="45dp"
+        android:layout_below="@+id/logo"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="20dp"
+        android:text="Sign In"
+        android:textAlignment="center"
+        android:textColor="#2C735E"
+        android:textSize="32sp" />
+
+    <EditText
+        android:id="@+id/editText_usernamelogin"
+        android:layout_width="330dp"
+        android:layout_height="55dp"
+        android:layout_below="@+id/Sign_In"
+        android:layout_marginStart="55dp"
+        android:layout_marginTop="25dp"
+        android:layout_marginEnd="55dp"
+        android:layout_marginBottom="20dp"
+        android:background="@drawable/rounded_edittext"
+        android:drawableStart="@drawable/ic_person"
+        android:drawablePadding="8dp"
+        android:hint="Enter Your Username"
+        android:paddingStart="15dp"
+        android:textColor="@color/black" />
+
+    <EditText
+        android:id="@+id/editText_Passwordlogin"
+        android:layout_width="330dp"
+        android:layout_height="55dp"
+        android:layout_below="@+id/editText_usernamelogin"
+        android:layout_marginStart="55dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="55dp"
+        android:layout_marginBottom="20dp"
+        android:background="@drawable/rounded_edittext"
+        android:drawableStart="@drawable/ic_baseline_lock_24"
+        android:drawableEnd="@drawable/ic_baseline_remove_red_eye_24"
+        android:drawablePadding="8dp"
+        android:hint="Enter Your Password"
+        android:paddingStart="15dp"
+        android:paddingEnd="15dp"
+        android:textColor="@color/black" />
+
+    <TextView
+        android:id="@+id/forgot_password"
+        android:layout_width="120dp"
+        android:layout_height="20dp"
+        android:layout_marginStart="240dp"
+        android:textSize="14sp"
+        android:textColor="#2C735E"
+        android:layout_below="@id/editText_Passwordlogin"
+        android:clickable="true"
+        android:text="Forgot Password?" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_signIn"
+        android:layout_width="330dp"
+        android:layout_height="60dp"
+        android:layout_below="@+id/forgot_password"
+        android:layout_marginStart="55dp"
+        android:layout_marginEnd="55dp"
+        android:backgroundTint="#2C735E"
+        android:text="Sign In"
+        app:cornerRadius="20dp" />
+
+    <TextView
+        android:id="@+id/text1"
+        android:layout_width="wrap_content"
+        android:layout_height="20dp"
+        android:layout_below="@id/btn_signIn"
+        android:layout_marginStart="110dp"
+        android:layout_marginTop="10dp"
+        android:text="Don’t have an account?"
+        android:textColor="@color/black"/>
+
+    <TextView
+        android:id="@+id/txt_btn_signUp"
+        android:layout_width="55dp"
+        android:layout_height="20dp"
+        android:layout_below="@id/btn_signIn"
+        android:layout_marginTop="10dp"
+        android:layout_toRightOf="@+id/text1"
+        android:clickable="true"
+        android:text=" Sign Up"
+        android:textColor="#2C735E"/>
+
+</RelativeLayout>
