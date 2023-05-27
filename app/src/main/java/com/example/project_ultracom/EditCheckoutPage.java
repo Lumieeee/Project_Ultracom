@@ -69,6 +69,7 @@ public class EditCheckoutPage extends AppCompatActivity {
             public void onClick(View view) {
                 updateCheckout();
             }
+
         });
     }
 
@@ -109,6 +110,8 @@ public class EditCheckoutPage extends AppCompatActivity {
                     @Override
                     public void onResponse(String response) {
                         Log.e("User_data", response);
+                        Intent intent = new Intent(EditCheckoutPage.this, MainActivity.class);
+                        startActivity(intent);
                         Toast.makeText(getApplicationContext(), "Data berhasil di Update", Toast.LENGTH_SHORT).show();
                     }
                 }, new Response.ErrorListener() {

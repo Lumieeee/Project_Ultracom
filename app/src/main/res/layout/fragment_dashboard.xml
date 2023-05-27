@@ -39,9 +39,10 @@
                 android:layout_height="245dp"
                 android:layout_marginTop="8dp"
                 android:scaleType="fitCenter"
-                android:src="@drawable/logo"
+                android:src="@drawable/home"
                 android:clickable="true"
-                android:background="@color/white"/>
+                android:background="#B0D4C9">
+            </ImageView>
         </LinearLayout>
 
         <LinearLayout
@@ -87,14 +88,17 @@
                         android:layout_width="match_parent"
                         android:layout_height="90dp"
                         android:scaleType="centerCrop"
+                        android:background="@color/white"
                         android:clickable="true"
-                        android:padding="45dp"/>
+                        android:padding="45dp"
+                        android:src="@drawable/printer"/>
 
                     <TextView
                         android:id="@+id/title1"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:gravity="center"
+                        android:background="@color/grey"
                         android:text="Printer"
                         android:textSize="14sp"
                         android:textStyle="bold"/>
@@ -120,13 +124,16 @@
                         android:layout_width="match_parent"
                         android:layout_height="90dp"
                         android:scaleType="centerCrop"
-                        android:padding="45dp"/>
+                        android:padding="45dp"
+                        android:background="@color/white"
+                        android:src="@drawable/laptop"/>
 
                     <TextView
                         android:id="@+id/title2"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:gravity="center"
+                        android:background="@color/grey"
                         android:text="Laptop"
                         android:textSize="14sp"
                         android:textStyle="bold"/>
@@ -162,13 +169,16 @@
                         android:layout_width="match_parent"
                         android:layout_height="90dp"
                         android:scaleType="centerCrop"
-                        android:padding="40dp"/>
+                        android:padding="40dp"
+                        android:background="@color/white"
+                        android:src="@drawable/penghitunguang"/>
 
                     <TextView
                         android:id="@+id/title3"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:gravity="center"
+                        android:background="@color/grey"
                         android:text="Mesin Hitung Uang"
                         android:textSize="14sp"
                         android:textStyle="bold"/>
@@ -194,13 +204,16 @@
                         android:layout_width="match_parent"
                         android:layout_height="90dp"
                         android:scaleType="centerCrop"
-                        android:padding="50dp"/>
+                        android:padding="50dp"
+                        android:background="@color/white"
+                        android:src="@drawable/passbook"/>
 
                     <TextView
                         android:id="@+id/title4"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:gravity="center"
+                        android:background="@color/grey"
                         android:text="Passbook"
                         android:textSize="14sp"
                         android:textStyle="bold"/>
@@ -214,7 +227,7 @@
             android:layout_marginTop="40dp"
             app:backgroundTint="#2C735E"
             app:cornerRadius="10dp"
-            android:text="Mulai Servis!">
+            android:text="Start Service!">
         </com.google.android.material.button.MaterialButton>
     </LinearLayout>
 </FrameLayout>

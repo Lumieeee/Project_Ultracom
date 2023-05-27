@@ -40,8 +40,9 @@ public class CheckoutPage extends AppCompatActivity {
     private EditText id_service, jasa_service, jml_service, catatan_service, metode_pembayaran;
     Spinner spinner, pembayaran;
     String[] jasa = {"Laptop", "Printer", "Passbook", "Mesin Hitung Uang"};
-    String[] payment = {"Cash", "Transfer"};
+    String[] payment = {"Cash"};
 
+    String status = "Segera di Proses";
     AutoCompleteTextView dropdown;
     ArrayAdapter<String> adapterItems;
 
@@ -172,6 +173,7 @@ public class CheckoutPage extends AppCompatActivity {
                 params.put("jml_service", sJml_service);
                 params.put("catatan_service", sCatatan_service);
                 params.put("metode_pembayaran", sMetode_pembayaran);
+                params.put("status", status);
 
 
                 return params;

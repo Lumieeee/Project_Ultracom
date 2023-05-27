@@ -137,6 +137,7 @@
                     android:layout_height="50dp"
                     android:paddingLeft="10dp"
                     android:textColor="@color/black"
+                    android:inputType="phone"
                     android:background="@drawable/rounded_edittext"
                     android:hint="Masukkan jumlah barang"/>
             </LinearLayout>
@@ -198,8 +199,5 @@
             </com.google.android.material.button.MaterialButton>
 
         </LinearLayout>
-
-
     </LinearLayout>
-
 </LinearLayout>

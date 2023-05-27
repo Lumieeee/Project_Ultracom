@@ -129,6 +129,7 @@
                     android:id="@+id/editText_editjmlService"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
+                    android:inputType="phone"
                     android:paddingLeft="10dp"
                     android:textColor="@color/black"
                     android:background="@drawable/rounded_edittext" />
