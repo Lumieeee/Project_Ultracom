@@ -1,8 +1,11 @@
 package com.example.project_ultracom;
 
 import static com.example.project_ultracom.DbContract.SERVER_CREATE_SERVICE_URL;
+import static com.example.project_ultracom.DbContract.SERVER_GET_DATA_URL;
+import static com.example.project_ultracom.DbContract.SERVER_GET_DATA_USER_URL;
 import static com.example.project_ultracom.DbContract.SERVER_UPDATE_USER_URL;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
@@ -26,6 +29,9 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.util.HashMap;
 import java.util.Map;
 
@@ -48,12 +54,14 @@ public class EditProfile extends AppCompatActivity {
         etconfpassword = (EditText) findViewById(R.id.editText_updateconfirmPassword);
         btnUpdateSave = (Button) findViewById(R.id.btn_editprofile);
 
-        sharedPreferences = getApplicationContext().getSharedPreferences("user_data", Context.MODE_PRIVATE);
-        etusername.setText(sharedPreferences.getString("username", null));
-        etemail.setText(sharedPreferences.getString("email", null));
-        etphone.setText(sharedPreferences.getString("phone", null));
-        etaddress.setText(sharedPreferences.getString("address", null));
-        etpassword.setText(sharedPreferences.getString("password", null));
+        getDataUser();
+
+//        sharedPreferences = getApplicationContext().getSharedPreferences("user_data", Context.MODE_PRIVATE);
+//        etusername.setText(sharedPreferences.getString("username", null));
+//        etemail.setText(sharedPreferences.getString("email", null));
+//        etphone.setText(sharedPreferences.getString("phone", null));
+//        etaddress.setText(sharedPreferences.getString("address", null));
+//        etpassword.setText(sharedPreferences.getString("password", null));
 
         btnUpdateSave.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -134,4 +142,50 @@ public class EditProfile extends AppCompatActivity {
         };
         requestQueue.add(stringRequest);
     }
+
+    private void getDataUser(){
+        SharedPreferences sharedPreferences = getSharedPreferences("user_data", Context.MODE_PRIVATE);
+        String myId = sharedPreferences.getString("id", null);
+        StringRequest request = new StringRequest(Request.Method.POST, SERVER_GET_DATA_USER_URL,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        try {
+                            JSONObject jsonObject = new JSONObject(response).getJSONObject("data");
+                            String sid = jsonObject.getString("id");
+                            String sUsername = jsonObject.getString("username");
+                            String sEmail = jsonObject.getString("email");
+                            String sPhone = jsonObject.getString("phone");
+                            String sAddress = jsonObject.getString("address");
+                            String sPassword = jsonObject.getString("password");
+
+                            etusername.setText(sUsername);
+                            etemail.setText(sEmail);
+                            etphone.setText(sPhone);
+                            etaddress.setText(sAddress);
+                            etpassword.setText(sPassword);
+
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+
+            }
+        }
+        ){
+            @Nullable
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError {
+                HashMap<String,String> form = new HashMap<String,String>();
+                form.put("id", myId);
+                return form;
+            }
+        };
+        RequestQueue requestQueue = Volley.newRequestQueue(this);
+        requestQueue.add(request);
+    }
+
 }

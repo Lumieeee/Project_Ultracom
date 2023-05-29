@@ -55,7 +55,7 @@ public class EditCheckoutPage extends AppCompatActivity {
         btn_wa.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String message = "Halo, apakah Service dengan ID sudah di proses?";
+                String message = "Halo, apakah Service dengan "+edtId.getText().toString()+" sudah di proses?";
                 String wpul = "https://wa.me/+6282131802740?text="+ message;
 
                 Intent intent = new Intent(Intent.ACTION_VIEW);

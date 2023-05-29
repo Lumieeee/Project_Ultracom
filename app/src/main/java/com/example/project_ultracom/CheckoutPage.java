@@ -42,7 +42,7 @@ public class CheckoutPage extends AppCompatActivity {
     String[] jasa = {"Laptop", "Printer", "Passbook", "Mesin Hitung Uang"};
     String[] payment = {"Cash"};
 
-    String status = "Segera di Proses";
+    String status = "PENDING";
     AutoCompleteTextView dropdown;
     ArrayAdapter<String> adapterItems;
 
@@ -90,10 +90,8 @@ public class CheckoutPage extends AppCompatActivity {
             }
         });
 
-//        jasa_service = (EditText) findViewById(R.id.editText_jasaService);
         jml_service =(EditText) findViewById(R.id.editText_jmlService);
         catatan_service = (EditText) findViewById(R.id.editText_catatanService);
-//        metode_pembayaran = (EditText) findViewById(R.id.editText_metodepembayaran);
         btnGenerateID = (Button) findViewById(R.id.btn_generateID);
         btncheckout = (Button) findViewById(R.id.btn_checkout);
 
@@ -153,7 +151,6 @@ public class CheckoutPage extends AppCompatActivity {
                 Log.e("User_data", response);
                 Toast.makeText(getApplicationContext(), "Data berhasil ditambahkan", Toast.LENGTH_SHORT).show();
                 id_service.setText("");
-//                jasa_service.setText("");
                 jml_service.setText("");
                 catatan_service.setText("");
                 metode_pembayaran.setText("");
@@ -193,6 +190,6 @@ public class CheckoutPage extends AppCompatActivity {
         // generate ID secara acak
         Random random = new Random();
         int randomNumber = random.nextInt(1000);
-        return "ID-" + randomNumber;
+        return "ID" + randomNumber;
     }
 }

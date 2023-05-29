@@ -45,7 +45,7 @@ public class DashboardFragment extends Fragment {
                 builder.setPositiveButton("Iya", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        String gotoUrl = "https://chat.openai.com/";
+                        String gotoUrl = "http://ultrashop.okifirsyah.com/#/";
 
                         Intent intent = new Intent(Intent.ACTION_VIEW);
                         intent.setData(Uri.parse(gotoUrl));

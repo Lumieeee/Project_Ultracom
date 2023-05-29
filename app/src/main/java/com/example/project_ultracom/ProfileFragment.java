@@ -1,10 +1,13 @@
 package com.example.project_ultracom;
 
+import static com.example.project_ultracom.DbContract.SERVER_GET_DATA_USER_URL;
+
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import android.util.Log;
@@ -13,6 +16,20 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
+
+import com.android.volley.AuthFailureError;
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class ProfileFragment extends Fragment {
     SharedPreferences sharedPreferences;
@@ -32,6 +49,8 @@ public class ProfileFragment extends Fragment {
         editProfile = view.findViewById(R.id.btn_editprofile);
         logout = view.findViewById(R.id.btn_logout);
 
+        getDataUser();
+
         editProfile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -50,10 +69,45 @@ public class ProfileFragment extends Fragment {
                 startActivity(intent);
             }
         });
-
-        sharedPreferences = getActivity().getSharedPreferences("user_data", Context.MODE_PRIVATE);
-        username.setText(sharedPreferences.getString("username", null));
-        email.setText(sharedPreferences.getString("email", null));
         return view;
+    }
+
+    private void getDataUser(){
+        SharedPreferences sharedPreferences = getActivity().getSharedPreferences("user_data", Context.MODE_PRIVATE);
+        String myId = sharedPreferences.getString("id", null);
+        StringRequest request = new StringRequest(Request.Method.POST, SERVER_GET_DATA_USER_URL,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        try {
+                            JSONObject jsonObject = new JSONObject(response).getJSONObject("data");
+                            String sid = jsonObject.getString("id");
+                            String sUsername = jsonObject.getString("username");
+                            String sEmail = jsonObject.getString("email");
+
+                            username.setText(sUsername);
+                            email.setText(sEmail);
+
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+
+            }
+        }
+        ){
+            @Nullable
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError {
+                HashMap<String,String> form = new HashMap<String,String>();
+                form.put("id", myId);
+                return form;
+            }
+        };
+        RequestQueue requestQueue = Volley.newRequestQueue(getActivity());
+        requestQueue.add(request);
     }
 }
